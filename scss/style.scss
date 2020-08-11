@@ -1,0 +1,142 @@
+// ----- Variáveis -----
+$background-principal: #fafafa;
+$color-blue: #3897f0;
+$color-text: #fff;
+
+// ----- Mixins -----
+@mixin box($radius, $value) {
+  border-radius: $radius;
+  box-sizing: $value;  
+}
+
+* { 
+  @include box(0, border-box);
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font: {
+    size: #{(16px/16px) + rem};
+  }
+}
+
+body {
+  background: $background-principal;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  border: 0;
+}
+
+main {
+  width: 90%;
+  max-width: 935px;
+  margin: 0 auto;
+}
+
+header {
+  display: flex;
+  margin: 30px 0;
+  flex-flow: column;
+  h1, h2 {
+    display: inline-block;
+    margin: 10px 0;
+  }
+  h1 {
+    font: {
+      size: #{(28px/16px) + rem};
+    }
+  }
+  h2 {
+    font: {
+      size: #{(24px/16px) + rem};
+    }
+  }
+  .avatar {
+    @include box(50px, none);
+    margin: 0 auto;
+  }
+  .desc {
+    text-align: center;
+  }
+  .links {
+    list-style: none;
+    margin: 10px 0;
+    li {
+      list-style: none;
+      margin:  0 20px 0 0;
+      display: inline-block;
+    }
+  }
+}
+
+.btn {
+  padding: 6px 14px;
+  border-width: 1px;
+  border-style: solid;
+  @include box(4px, none);
+}
+
+.btn-follow {
+  @extend .btn;
+  margin: 0 20px;
+  border-color: $color-blue;
+  color: $color-blue;
+  &:hover {
+    background: $color-blue;
+    color: $color-text;
+  }
+}
+
+.photos {
+  list-style: none;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  display: flex;
+  li {
+    width: 100%;
+    margin: 20px 0;
+    position: relative;
+    img {
+      width: 100%;
+    }
+    .img-hover {
+      opacity: 0;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.3);
+      transition: all 0.3s linear;
+    }
+    &:hover .img-hover {
+      opacity: 1;
+    }
+  }
+}
+
+@media (min-width: 768px ) {
+  header {
+    flex-flow: row;
+    .avatar {
+      margin: 0 40px;
+    }
+    .desc {
+      text-align: left;
+    }
+    .photos li {
+  	  width: 30%;
+    }
+  }
+}
