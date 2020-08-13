@@ -1,0 +1,10 @@
+@mixin box($radius, $value) {
+  border-radius: $radius;
+  box-sizing: $value;  
+}
+
+@mixin mobile {
+  @media(min-width: #{$mobile-width}) {
+    @content;
+  }
+}

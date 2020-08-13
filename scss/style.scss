@@ -1,42 +1,9 @@
-// ----- Variáveis -----
-$background-principal: #fafafa;
-$color-blue: #3897f0;
-$color-text: #fff;
-
-// ----- Mixins -----
-@mixin box($radius, $value) {
-  border-radius: $radius;
-  box-sizing: $value;  
-}
-
-* { 
-  @include box(0, border-box);
-  margin: 0;
-  padding: 0;
-}
-
-html {
-  font: {
-    size: #{(16px/16px) + rem};
-  }
-}
-
-body {
-  background: $background-principal;
-}
-
-ul {
-  padding: 0;
-  margin: 0;
-}
-
-a {
-  text-decoration: none;
-}
-
-img {
-  border: 0;
-}
+@import "partials/variables.scss";
+@import "partials/mixins.scss";
+@import "partials/functions.scss";
+@import "partials/placeholders.scss";
+@import "partials/bases.scss";
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
 
 main {
   width: 90%;
@@ -54,7 +21,7 @@ header {
   }
   h1 {
     font: {
-      size: #{(28px/16px) + rem};
+      size: resize(28px, 16px);
     }
   }
   h2 {
@@ -81,10 +48,7 @@ header {
 }
 
 .btn {
-  padding: 6px 14px;
-  border-width: 1px;
-  border-style: solid;
-  @include box(4px, none);
+  @extend %spaces-boders;
 }
 
 .btn-follow {
@@ -126,7 +90,7 @@ header {
   }
 }
 
-@media (min-width: 768px ) {
+@include mobile {
   header {
     flex-flow: row;
     .avatar {

@@ -1,0 +1,6 @@
+%spaces-boders {
+  padding: 6px 14px;
+  border-width: 1px;
+  border-style: solid;
+  @include box(4px, none);
+}

@@ -1,0 +1,4 @@
+@function resize($tamPx, $tamDeUmRem) {
+  $newSize: ($tamPx/$tamDeUmRem) + rem;
+  @return $newSize;
+}

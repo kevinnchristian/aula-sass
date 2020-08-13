@@ -1,0 +1,29 @@
+* { 
+  @include box(0, border-box);
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font: {
+    size: resize(16px, 16px);
+  }
+}
+
+body {
+  background: $background-principal;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  border: 0;
+}
